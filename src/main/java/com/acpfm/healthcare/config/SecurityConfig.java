@@ -1,4 +1,4 @@
-package com.example.healthcare.config;
+package com.acpfm.healthcare.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

@@ -1,4 +1,4 @@
-package com.example.healthcare.model;
+package com.acpfm.healthcare.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,11 +22,14 @@ public class User {
     @Column(name = "id_perfil")
     private Integer id_perfil;
 
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "num_cedula")
     private Integer num_cedula;

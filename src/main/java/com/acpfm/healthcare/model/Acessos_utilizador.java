@@ -1,4 +1,4 @@
-package com.example.healthcare.model;
+package com.acpfm.healthcare.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
