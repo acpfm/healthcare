@@ -1,4 +1,4 @@
-package com.test.controller;
+package com.acpfm.healthcare.controller;
 
 import com.acpfm.healthcare.controller.PatientController;
 import com.acpfm.healthcare.model.Patient;
@@ -68,6 +68,6 @@ public class PatientControllerTest {
 
         verify(patientService, times(1)).searchPatients(nome);
         verify(model,times(1)).addAttribute("patients",patients);
-        assertEquals("fragments/pacients :: patientList", viewName);
+        assertEquals("fragments/patient-list :: patientList", viewName);
     }
 }
