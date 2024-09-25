@@ -32,4 +32,5 @@ public class ContactServiceTest {
         assertEquals("hpotter@email.com",savedContato.getValor());
         assertEquals("contato principal",savedContato.getObservacao());
     }
+    
 }

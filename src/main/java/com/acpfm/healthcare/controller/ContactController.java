@@ -31,6 +31,4 @@ public class ContactController {
     public List<Contact> listContactsUtente(@RequestParam Integer numUtente){
         return contactService.searchContactsUtente(numUtente);
     }
-
-
 }

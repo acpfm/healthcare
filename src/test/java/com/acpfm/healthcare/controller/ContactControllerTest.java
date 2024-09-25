@@ -43,4 +43,5 @@ public class ContactControllerTest {
         verify(model,times(1)).addAttribute("contacts",contact);
         assertEquals("fragments/contact-list :: contactList", viewContact);
     }
+
 }
