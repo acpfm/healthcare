@@ -16,10 +16,10 @@ public class User {
     private Long id;
 
     @Column(name = "num_mecanog")
-    private Integer num_mecanog;
+    private Integer numMecanog;
 
     @Column(name = "id_perfil")
-    private Integer id_perfil;
+    private Integer idPerfil;
 
     @Column(name = "username")
     private String username;
@@ -31,7 +31,7 @@ public class User {
     private String password;
 
     @Column(name = "num_cedula")
-    private Integer num_cedula;
+    private Integer numCedula;
 
     @Column(name = "status")
     private Integer status;

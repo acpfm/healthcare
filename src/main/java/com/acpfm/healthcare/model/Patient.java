@@ -19,8 +19,8 @@ public class Patient {
     private String nome;
 
     @Column(name = "num_utente")
-    private Integer num_utente;
+    private Integer numUtente;
 
     @Column(name = "cod_unidade")
-    private Integer cod_unidade;
+    private Integer codUnidade;
 }

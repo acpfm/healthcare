@@ -5,25 +5,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "contactos_utente")
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "num_utente")
-    private Integer num_utente;
+    @Column(name = "num_utente", nullable = false)
+    private Integer numUtente;
 
     @Column(name = "id_tp_contacto")
-    private Integer id_tp_contacto;
+    private Integer idTpContacto;
 
     @Column(name = "valor")
-    private Integer valor;
+    private String valor;
 
     @Column(name = "observacao")
-    private Integer observacao;
+    private String observacao;
 }

@@ -1,7 +1,8 @@
 package com.acpfm.healthcare.controller;
 
-import com.acpfm.healthcare.controller.PatientController;
+import com.acpfm.healthcare.model.Contact;
 import com.acpfm.healthcare.model.Patient;
+import com.acpfm.healthcare.service.ContactService;
 import com.acpfm.healthcare.service.PatientService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -13,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class PatientControllerTest {
+class PatientControllerTest {
     @Mock
     private PatientService patientService;
 

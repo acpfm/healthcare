@@ -11,28 +11,28 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-
+    private static final String attributeNameUsr = "users";
     @Autowired
     private UserService userService;
 
     @GetMapping
     public String listUsers(Model model){
         List<User> users = userService.getAllUsers();
-        model.addAttribute("users",users);
+        model.addAttribute(attributeNameUsr,users);
         return "users";
     }
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, Model model){
         userService.registerUser(user);
-        model.addAttribute("users",userService.getAllUsers());
+        model.addAttribute(attributeNameUsr,userService.getAllUsers());
         return "fragments/user-list :: userList";
     }
 
     @PostMapping("/search")
     public String searchUsers(@RequestParam String username, Model model){
         List<User> users = userService.searchUsers(username);
-        model.addAttribute("users",users);
+        model.addAttribute(attributeNameUsr,users);
         return "fragments/user-list :: userList";
     }
 }

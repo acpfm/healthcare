@@ -16,14 +16,14 @@ public class AcessosUtilizador {
     private Long id;
 
     @Column(name = "nmecanog_utilizador")
-    private Integer nmecanog_utilizador;
+    private Integer nmecanogUtilizador;
 
     @Column(name = "cod_unidade")
-    private Integer cod_unidade;
+    private Integer codUnidade;
 
     @Column(name = "dt_ini_vigencia")
-    private Integer dt_ini_vigencia;
+    private Integer dtIniVigencia;
 
     @Column(name = "dt_fim_vigencia")
-    private Integer dt_fim_vigencia;
+    private Integer dtFimVigencia;
 }
