@@ -21,10 +21,11 @@ public class ContactController {
     }
 
     @PostMapping("/register")
-    public String registerContact(@ModelAttribute Contact contact, Model model){
+    public Contact registerContact(@RequestBody Contact contact, Model model){
         contactService.registerContact(contact);
-        model.addAttribute("contact",contactService.searchContactsUtente(contact.getNumUtente()));
-        return "fragments/contact-list :: contactList";
+        //model.addAttribute("contact",contactService.searchContactsUtente(contact.getNumUtente()));
+        //return "fragments/contact-list :: contactList";
+        return contact;
     }
 
     @PostMapping("/search")

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,8 +24,8 @@ public class AcessosUtilizador {
     private Integer codUnidade;
 
     @Column(name = "dt_ini_vigencia")
-    private Integer dtIniVigencia;
+    private Date dtIniVigencia;
 
     @Column(name = "dt_fim_vigencia")
-    private Integer dtFimVigencia;
+    private Date dtFimVigencia;
 }

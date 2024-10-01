@@ -1,5 +1,6 @@
 package com.acpfm.healthcare.controller;
 
+
 import com.acpfm.healthcare.model.User;
 import com.acpfm.healthcare.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/User")
 public class UserController {
     private static final String attributeNameUsr = "users";
     @Autowired
@@ -23,10 +24,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute User user, Model model){
+    public User registerUser(@RequestBody User user, Model model){
         userService.registerUser(user);
-        model.addAttribute(attributeNameUsr,userService.getAllUsers());
-        return "fragments/user-list :: userList";
+        //model.addAttribute(attributeNameUsr,userService.getAllUsers());
+        //return "fragments/user-list :: userList";
+        return user;
     }
 
     @PostMapping("/search")
