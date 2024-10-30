@@ -1,8 +1,10 @@
 package com.acpfm.healthcare.controller;
 
+import com.acpfm.healthcare.model.Contact;
 import com.acpfm.healthcare.model.Patient;
 import com.acpfm.healthcare.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +36,12 @@ public class PatientController {
         List<Patient> patients = patientService.searchPatients(nome);
         model.addAttribute("patients",patients);
         return "fragments/patient-list :: patientList";
+    }
+
+    //Endpoint para atualizar registo de utente. É obrigatório passar o parâmetro id do registo
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Patient> updatePatient(@PathVariable Long id, @RequestBody Patient patients){
+        Patient updatePatients = patientService.updatePatient(id, patients);
+        return updatePatients != null ? ResponseEntity.ok(patients) : ResponseEntity.notFound().build();
     }
 }

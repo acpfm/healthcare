@@ -1,10 +1,12 @@
 package com.acpfm.healthcare.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -24,9 +26,11 @@ public class AcessosUtilizador {
     private Integer codUnidade;
 
     @Column(name = "dt_ini_vigencia")
-    private Date dtIniVigencia;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dtIniVigencia;
 
     @Column(name = "dt_fim_vigencia")
-    private Date dtFimVigencia;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dtFimVigencia;
 
 }

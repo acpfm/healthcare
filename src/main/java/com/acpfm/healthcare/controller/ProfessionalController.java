@@ -3,6 +3,7 @@ package com.acpfm.healthcare.controller;
 import com.acpfm.healthcare.model.Professional;
 import com.acpfm.healthcare.service.ProfessionalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +35,12 @@ public class ProfessionalController {
         List<Professional> professional = professionalService.searchProfessionals(nome);
         model.addAttribute("professionals",professional);
         return "fragments/professional-list :: professionalList";
+    }
+
+    //Endpoint para atualizar registo do profissional. É obrigatório passar o parâmetro id do registo
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Professional> updateProfessional(@PathVariable Long id, @RequestBody Professional professionals){
+        Professional updateProfessional = professionalService.updateProfessional(id, professionals);
+        return updateProfessional != null ? ResponseEntity.ok(updateProfessional) : ResponseEntity.notFound().build();
     }
 }
