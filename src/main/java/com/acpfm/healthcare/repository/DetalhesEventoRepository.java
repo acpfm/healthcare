@@ -10,4 +10,12 @@ import java.util.List;
 @Repository
 public interface DetalhesEventoRepository extends JpaRepository<DetalhesEvento,Long> {
     List<DetalhesEvento> findByIdEvento(Integer IdEvento);
+
+    List<DetalhesEvento> findBySubjetivo(String subjetivo);
+
+    List<DetalhesEvento> findByObjetivo(String objetivo);
+
+    List<DetalhesEvento> findByAvaliacao(String avaliacao);
+
+    List<DetalhesEvento> findByPlano(String plano);
 }

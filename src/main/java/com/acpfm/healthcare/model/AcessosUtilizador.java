@@ -28,4 +28,5 @@ public class AcessosUtilizador {
 
     @Column(name = "dt_fim_vigencia")
     private Date dtFimVigencia;
+
 }

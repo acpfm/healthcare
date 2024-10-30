@@ -10,8 +10,13 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     /*
     @Autowired
@@ -44,5 +49,13 @@ public class UserService {
         */
 
         return user;
+    }
+
+    public User updateUser(Long id, User updateUser){
+        if(userRepository.existsById(id)){
+            updateUser.setId(id);
+            return userRepository.save(updateUser);
+        }
+        return null;
     }
 }

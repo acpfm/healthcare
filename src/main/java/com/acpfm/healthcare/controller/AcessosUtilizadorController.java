@@ -4,6 +4,7 @@ package com.acpfm.healthcare.controller;
 import com.acpfm.healthcare.model.AcessosUtilizador;
 import com.acpfm.healthcare.service.AcessosUtilizadorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +32,17 @@ public class AcessosUtilizadorController {
         acessosUtilizadorService.registerAcessosUtilizador(acessos);
         //model.addAttribute("acessosUtilizador",acessosUtilizadorService.registerAcessosUtilizador(acessos.getNmecanogUtilizador()));
         return acessos;
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<AcessosUtilizador> updateAcessosUtilizador(@PathVariable Long id, @RequestBody AcessosUtilizador acessos){
+        AcessosUtilizador updateAcessos = acessosUtilizadorService.updateAcessosUtilizador(id,acessos);
+
+        if(updateAcessos != null){
+            return ResponseEntity.ok(updateAcessos);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+        //model.addAttribute("acessosUtilizador",acessosUtilizadorService.registerAcessosUtilizador(acessos.getNmecanogUtilizador()));
     }
 }

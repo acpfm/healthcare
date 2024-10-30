@@ -28,4 +28,11 @@ public class AcessosUtilizadorService {
     public List<AcessosUtilizador> getAllAcessos(){
         return acessosUtilizadorRepository.findAll();
     }
+    public AcessosUtilizador updateAcessosUtilizador(Long id, AcessosUtilizador updatedAcessos){
+        if(acessosUtilizadorRepository.existsById(id)){
+            updatedAcessos.setId(id);
+            return  acessosUtilizadorRepository.save(updatedAcessos);
+        }
+        return null;
+    }
 }

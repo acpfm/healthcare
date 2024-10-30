@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -36,8 +37,18 @@ public class UnidadesAtendimento {
     private String email;
 
     @Column(name = "dt_registo")
-    private Date dtRegisto;
+    private LocalDateTime dtRegisto;
 
     @Column(name = "dt_alteracao")
-    private Date dtAlteracao;
+    private LocalDateTime dtAlteracao;
+
+    @PrePersist
+    protected void onCreate() {
+        dtRegisto = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        dtAlteracao = LocalDateTime.now();
+    }
 }
