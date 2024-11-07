@@ -16,6 +16,7 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
+    //Endpoint para listar os pacientes. Lista sem filtro.
     @GetMapping
     public String listPatients(Model model){
         List<Patient> patients = patientService.getAllPatients();
@@ -23,6 +24,7 @@ public class PatientController {
         return "patients";
     }
 
+    //Endpoint para registar um novo paciente.
     @PostMapping("/register")
     public Patient registerPatient(@RequestBody Patient patient, Model model){
         patientService.registerPatient(patient);
@@ -31,6 +33,7 @@ public class PatientController {
         return patient;
     }
 
+    //Endpoint para pesquisar um paciente a partir de seu nome
     @PostMapping("/search")
     public String searchPatients(@RequestParam String nome, Model model){
         List<Patient> patients = patientService.searchPatients(nome);

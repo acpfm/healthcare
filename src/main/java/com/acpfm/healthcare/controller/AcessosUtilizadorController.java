@@ -5,6 +5,7 @@ import com.acpfm.healthcare.model.AcessosUtilizador;
 import com.acpfm.healthcare.service.AcessosUtilizadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,14 +30,18 @@ public class AcessosUtilizadorController {
 
     //Endpoint para listar todos os acessos de todos os utilizadores
     @GetMapping
-    public List<AcessosUtilizador> listaAcessos(){
-        return acessosUtilizadorService.getAllAcessos();
+    public String listaAcessos(Model model){
+        List<AcessosUtilizador> acessos = acessosUtilizadorService.getAllAcessos();
+        model.addAttribute("numMecanog",acessos);
+        return "fragments/acessosuser-list :: AcessosList";
     }
 
     //Endpoint para listar os acessos de um utilizador através do Num. Mecanografico
-    @PostMapping("/search")
-    public List<AcessosUtilizador> searchAcessosUtilizador(@RequestParam Integer numMecanog){
-        return acessosUtilizadorService.searchAcessosUtilizador(numMecanog);
+    @PostMapping("/search/{numMecanog}")
+    public List<AcessosUtilizador> searchAcessosUtilizador(@PathVariable Integer numMecanog, Model model){
+        List<AcessosUtilizador> acessos = acessosUtilizadorService.searchAcessosUtilizador(numMecanog);
+        model.addAttribute("numMecanog",acessos);
+        return acessos;
     }
 
     //Endpoint para atualizar registo de acessos do utilizador

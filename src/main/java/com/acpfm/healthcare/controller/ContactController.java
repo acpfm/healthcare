@@ -31,9 +31,10 @@ public class ContactController {
     }
 
     //Endpoint para pesquisar dados de contato de um utente
-    @PostMapping("/search")
-    public List<Contact> listContactsUtente(@RequestParam Integer numUtente){
-        return contactService.searchContactsUtente(numUtente);
+    @PostMapping("/search/{numUtente}")
+    public List<Contact> listContactsUtente(@PathVariable Integer numUtente, Model model){
+        List<Contact> contacts = contactService.searchContactsUtente(numUtente);
+        return contacts;
     }
 
     //Endpoint para atualizar registo de acessos do utilizador. É obrigatório passar o parâmetro id do registo

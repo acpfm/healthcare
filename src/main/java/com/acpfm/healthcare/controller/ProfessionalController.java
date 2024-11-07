@@ -15,6 +15,7 @@ public class ProfessionalController {
     @Autowired
     ProfessionalService professionalService;
 
+    //Endpoint para listar todos os profissionais registados
     @GetMapping
     public String listProfessionals(Model model){
         List<Professional> professional = professionalService.getAllProfessionals();
@@ -22,6 +23,7 @@ public class ProfessionalController {
         return "professionals";
     }
 
+    //Endpoint para registar um profissional novo.
     @PostMapping("/register")
     public Professional registerProfessional(@RequestBody Professional professional, Model model){
         professionalService.registerProfessional(professional);
@@ -30,6 +32,7 @@ public class ProfessionalController {
         return professional;
     }
 
+    //Endpoint para pesquisar um profissional a partir do seu nome
     @PostMapping("/search")
     public String searchProfessional(@RequestParam String nome, Model model){
         List<Professional> professional = professionalService.searchProfessionals(nome);

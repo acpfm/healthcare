@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //Endpoint para listar todos os users do sistema, sem filtros.
     @GetMapping
     public String listUsers(Model model){
         List<User> users = userService.getAllUsers();
@@ -25,6 +26,7 @@ public class UserController {
         return "users";
     }
 
+    //Endpoint para registar novos users.
     @PostMapping("/register")
     public User registerUser(@RequestBody User user, Model model){
         userService.registerUser(user);
@@ -33,6 +35,7 @@ public class UserController {
         return user;
     }
 
+    //Endpoint pars lista os users registados a partir de um nome.
     @PostMapping("/search")
     public String searchUsers(@RequestParam String username, Model model){
         List<User> users = userService.searchUsers(username);

@@ -17,12 +17,14 @@ public class UnidadesAtendimentoController {
     @Autowired
     UnidadesAtendimentoService unidadesAtendimentoService;
 
+    //Endpoint para registar uma nova unidade de atendimento.
     @PostMapping("/register")
     public UnidadesAtendimento registerUnidadesAtendimento(@RequestBody UnidadesAtendimento unidadesAtendimento, Model model){
         unidadesAtendimentoService.registerUnidadesAtendimento(unidadesAtendimento);
         return unidadesAtendimento;
     }
 
+    //Endpoint para listar as unidades de atendimento registadas a partir de um nome.
     @PostMapping("/search")
     public String searchUnidadesAtendimento(@RequestParam String nome, Model model){
         List<UnidadesAtendimento> unidadesAtendimento = unidadesAtendimentoService.searchUnidadesAtendimento(nome);
