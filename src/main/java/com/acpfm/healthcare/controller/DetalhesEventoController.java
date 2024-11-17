@@ -23,9 +23,10 @@ public class DetalhesEventoController {
     }
 
     //Endpoint que permite listar os dados registados de um evento a partir do seu Id.
-    @PostMapping("/search")
-    public List<DetalhesEvento> listEventosIdEvento(@RequestParam Integer IdEvento){
-        return detalhesEventoService.searchEventosNumUtente(IdEvento);
+    @PostMapping("/search/{idEvento}")
+    public List<DetalhesEvento> listEventosIdEvento(@PathVariable Integer IdEvento, Model model){
+        List<DetalhesEvento> detalhes = detalhesEventoService.searchEventosNumUtente(IdEvento);
+        return detalhes;
     }
 
     //Endpoint para atualizar os detalhes do registo de um evento. É obrigatório passar o parâmetro id do registo

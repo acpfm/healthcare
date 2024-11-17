@@ -29,9 +29,10 @@ public class EventoController {
     }
 
     //Endpoint para pesquisar um evento de um determinado utente.
-    @PostMapping("/search")
-    public List<Evento> listEventosNumUtente(@RequestParam Integer numUtente){
-        return eventoService.searchEventosNumUtente(numUtente);
+    @PostMapping("/search/{numUtente}")
+    public List<Evento> listEventosNumUtente(@PathVariable Integer numUtente, Model model){
+        List<Evento> eventos = eventoService.searchEventosNumUtente(numUtente);
+        return eventos;
     }
 
     //Endpoint para atualizar registo de um evento. É obrigatório passar o parâmetro id do registo
